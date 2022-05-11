@@ -169,14 +169,16 @@ Use the filterByWord function below to do the following:
 
 
 function filterByWord(arr, filterFlavor){
-  const newArr = [];
+  let newArr = []
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].includes(filterFlavor)) {
       newArr.push(arr[i]);
     }
+    return newArr;
   }
-  return newArr;
 }
+  
+
 
 
 
@@ -192,10 +194,29 @@ Use the getAverageWordLength function below to do the following:
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-  /*code here*/
+function getAverageWordLength(arr){
+  arrToAvg = [];
+  for (let index of arr) {
+    wordsInFlavor = index.split(' ');
+    numOfWords = wordsInFlavor.length;
+    if(numOfWords === 1) {
+      arrToAvg.push(1);
+    }
+    else if (numOfWords === 2) {
+      arrToAvg.push(2);
+    }
+    else if (numOfWords === 3) {
+      arrToAvg.push(3);
+  }
 }
-
+let sum = 0;
+for(let i =0; i < arrToAvg.length; i++) {
+  sum += arrToAvg[i];
+}
+let average = sum / arrToAvg.length;
+return average;
+}
+console.log(getAverageWordLength(originalFlavors));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors 
